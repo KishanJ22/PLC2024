@@ -4,8 +4,10 @@ ask prompt =
   putStrLn prompt
   line <- getLine
   if line == ""
-    then ask prompt
-    else putStrLn ("you said: " ++ reverse line)
+    then ask (prompt ++ "!") -- adds ! to the end every time nothing is entered
+  else if line == "quit"
+    then putStrLn ("Quitting...")
+  else putStrLn ("you said: " ++ reverse line)
 
 main :: IO ()
 main =
